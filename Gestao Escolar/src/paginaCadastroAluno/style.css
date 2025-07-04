@@ -1,0 +1,356 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F5F5;
+    height: 100%;
+
+}
+
+.logo img {
+    width: 100px;
+}
+
+.navmenu {
+    background: #fff;
+    height: 60px;
+    display: block;
+    width: 100%;
+    box-shadow: 0 1px 4px #23232329;
+    z-index: 1;
+    position: fixed;
+    margin: 0;
+
+
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+    width: 100%;
+    margin-top: 10px;
+    
+}
+
+.menu {
+
+    white-space: nowrap;
+    text-align: center;
+    margin-right: 10%;
+
+    margin: 0 auto;    
+    margin-bottom: 10px;
+}
+
+li {
+    display: inline-block;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #959595;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+    font-family: Ubuntu;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.menu a:hover {
+    color: #fba342;
+}
+
+.menu-rigth {
+    padding: 10px;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    background: linear-gradient(90deg, #fba342, #fbc241);
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.menu-rigth:hover {
+    background: linear-gradient(90deg, #fbc241, #ffb301);
+
+}
+.menu-rigth a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Ubuntu;
+    padding-left: 8px;
+    padding-right: 10px;
+    font-size: 14px;
+    
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background: no-repeat center/100% url(../paginaHome/fundoVetor.jpg);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+
+nav {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+h1 {
+  width: 500px;
+  margin: 100px auto 20px;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+footer {
+    width: 100%;
+    height: 6%;
+    background-color: #fba342;
+    padding-bottom: 8%;
+    box-shadow: 0px -2px 8px 0px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px -2px 8px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px -2px 8px 0px rgba(0,0,0,0.4);
+}
+
+/*----------------------------------------------------------------------------------*/
+
+nav {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+li {
+
+    position: relative;
+    transition-duration: 0.5s;
+}
+
+li ul {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+}
+
+ul li:hover,
+ul li:focus-within {
+
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #F5F5F5
+}
+
+ul li:hover>ul,
+ul li:focus-within>ul,
+ul li ul:hover,
+ul li ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+
+}
+
+.listaDrop {
+    background-color: #fff;
+}
+
+.itemli {
+    display: list-item;
+    margin: 1%;
+    padding: 2%;
+
+}
+
+.itemli:hover {
+    font-size: 16.5px;
+}
+
+/** Tela cadastro aluno */
+
+#fotoAluno {
+    width: 100%;
+}
+
+.telaNav {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 30px;
+    text-align: center;
+    margin: 30px;
+    margin-top: 90px;
+    margin-right: 0;
+    box-shadow: -1px -1px 8px 0px rgba(0,0,0,0.4);
+    -webkit-box-shadow: -1px -1px 8px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: -1px -1px 8px 0px rgba(0,0,0,0.4);
+}
+
+.telaCadastro {
+    width: 80%;
+    background-color: #f5f3f3;
+    padding: 30px;
+    text-align: center;
+    margin: 30px;
+    margin-top: 90px;
+    margin-left: 0;
+    box-shadow: -1px -1px 8px 0px rgba(0,0,0,0.4);
+    -webkit-box-shadow: -1px -1px 8px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: -1px -1px 8px 0px rgba(0,0,0,0.4);
+}
+
+.required {
+    color: red;
+}
+
+
+
+form {
+    text-align: left;
+    font-size: 14px;
+    font-family: Ubuntu;
+    color: #706f6f;
+}
+
+.dadosPessoais, .dadosContato, .dadosfamiliares, .dadosinfoescolares, .dadossaude, .dadosautorizacoes, .salvar {
+    background-color: #95959531;
+    padding: 10px;
+    margin: 2px;
+}
+
+.tituloForm {
+    margin: 10px;
+    margin-left: 0;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fba342;
+}
+
+input {
+    margin-bottom: 1%;
+}
+
+.salvar {
+    text-align: center;
+}
+#btnsalvar, #btnlimpar {
+    text-align: center;
+    background: #fbc241;
+    padding: 7px 20px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border: #fba342;
+    color: #706f6f;
+    transition: 0.3s;
+}
+
+#btnlimpar:hover {
+    color: #363636;
+    background: #fba342;
+    padding: 8px 21px;
+    transition: 0.3s;
+}
+
+#btnsalvar:focus {
+    color: #363636;
+    background: #fbc241;
+    padding: 7px 20px;
+    transition: 0.3s;
+}
+
+#btnsalvar:hover {
+    color: #363636;
+    background: #fba342;
+    padding: 8px 21px;
+    transition: 0.3s;
+}
+
+
+/* Propriedade tamanho input */
+#numero {
+    width: 60px;
+}
+
+#endereco {
+    width: 250px;
+}
+
+#nomeCompleto, #nomemae, #nomepai {
+    width: 300px;
+}
+
+#nomeCompleto {
+    width: 65%;
+}
+#bairro {
+    width: 265px;
+}
+
+#emailmae, #emailpai {
+    width: 265px;
+}
+
+#nomeescolaorigem {
+    width: 300px;
+}
+
+p {
+    margin-bottom: 1%;
+}
+
+.dadosautorizacoes > .sim1 {
+    margin-left: 52px;
+}
+/*
+input:required ~ label::after {
+    content: " (obrigatório)";
+    font-size: 0.8em;
+    color: #000;
+  }
+
+   Campo com dados válidos 
+input:valid ~ label {
+    color: black;
+  }
+
+  input:valid ~ span {
+    color: #0c0;
+  }
+  
+  Campo com dados inválidos 
+  input:invalid {
+    border-color: red;
+  }
+
+  */

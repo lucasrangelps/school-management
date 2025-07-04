@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Pro - Cadastro Aluno</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="navmenu">
+        <div class="navbar">
+            <div class="logo">
+                <img src="../paginaHome/logoSchoolPro.png" alt="Logo SchoolPro">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../paginaHome/index.html">Home</a></li>
+                    <li class="drop"><a href="#">Serviços</a>
+                        <ul class="listaDrop">
+                            <li class="itemli"><a href="#">Registro de Alunos</a></li>
+                            <li class="itemli"><a href="#">Matrícula em Cursos</a></li>
+                            <li class="itemli"><a href="#">Ger. de Documentos</a></li>
+                        </ul>
+                    </li>                 
+                    <li><a href="#">Portal</a></li>
+                    <li><a href="#">Gestão Financeira</a></li>
+                </ul>
+            </nav>
+            <div class="menu-rigth">
+                    <li><a href="#">Login</a></li>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="telaNav">
+           <div class="fotoAluno">
+                <img id="fotoAluno" src="userF1.png" alt="">
+           </div>
+        </div>
+        <div class="telaCadastro">
+           <form action="" class="formCadastro">
+                <!--Bloco formulario dados pessoais-->
+                <div class="dadosPessoais">
+                    <p class="tituloForm">Dados Pessoais</p>
+                    <label for="nomeCompleto">Nome Completo<span class="required"> * </span></label>
+                    <input type="text" id="nomeCompleto" name="nomeCompleto" value="" required/>
+
+                    <label for="matricula">Matricula<span class="required"> * </span></label>
+                    <input type="text" id="matricula" name="matricula" value="" required/>
+
+                    <label for="dataNasc">Data Nascimento<span class="required"> * </span></label>
+                    <input type="date" id="dataNasc" name="dataNasc" value="" required/>
+
+                    <label for="genero">Genero<span class="required"> * </span></label>
+                    <select name="genero">
+                        <option value=""></option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+
+                    <label for="nacionalidade">Nacionalidade<span class="required"> *</span></label>
+                    <input type="text" id="nacionalidade" name="nacionalidade" value="" required/>
+
+                    <label for="cpf">CPF<span class="required"> *</span></label>
+                    <input type="number" id="cpf" name="cpf" value="" required/>
+
+                    <label for="rg">RG<span class="required" > *</span></label>
+                    <input type="number" id="rg" name="rg" value="" required/>
+
+                </div>
+
+                <!--Bloco formulario dados de contato-->
+                <div class="dadosContato">
+                    <p class="tituloForm">Dados Contato</p>
+                    <label for="endereco">Endereco<span class="required"> * </span></label>
+                    <input type="text" id="endereco" name="endereco" value="" required/>
+
+                    <label for="numero">Número<span class="required" > *</span></label>
+                    <input type="number" id="numero" name="numero" value="" required/>
+
+                    <label for="complemento">Complemento<span class="required" > *</span></label>
+                    <input type="text" id="complemento" name="complemento" value="" required/>
+
+                    <label for="bairro">Bairro<span class="required" > *</span></label>
+                    <input type="text" id="bairro" name="bairro" value="" required/>
+
+                    <label for="cidade">Cidade<span class="required" > *</span></label>
+                    <input type="text" id="cidade" name="cidade" value="" required/>
+                    
+                    <label for="estado">Estado<span class="required" > *</span></label>
+                    <input type="text" id="estado" name="estado" value="" required/>
+
+                    <label for="cep">CEP<span class="required" > *</span></label>
+                    <input type="number" id="cep" name="cep" value="" required/>
+                </div>
+
+                <!--Bloco formulario dados familiares-->
+                <div class="dadosfamiliares">
+                    <p class="tituloForm">Dados Familiares</p>
+                    <label for="nomemae">Nome Mãe<span class="required"> * </span></label>
+                    <input type="text" id="nomemae" name="nomemae" value="" required/>
+
+                    <label for="telefonemae">Telefone<span class="required"> * </span></label>
+                    <input type="tel" id="telefonemae" name="telefonemae" value="" required/>
+
+                    <label for="emailmae">E-mail<span class="required"> * </span></label>
+                    <input type="email" id="emailmae" name="emailmae" value="" required/>
+                    <br>
+                    <label for="nomepai">Nome Pai<span class="required"> * </span></label>
+                    <input type="text" id="nomepai" name="nomepai" value="" required/>
+
+                    <label for="telefonepai">Telefone<span class="required"> * </span></label>
+                    <input type="tel" id="telefonepai" name="telefonepai" value="" required/>
+
+                    <label for="emailpai">E-mail<span class="required"> * </span></label>
+                    <input type="email" id="emailpai" name="emailpai" value="" required/>
+                </div>
+
+                <!--Bloco formulario informações escolares-->
+                <div class="dadosinfoescolares">
+                    <p class="tituloForm">informações Escolares</p>
+                    
+                    <label for="nomeescolaorigem">Nome Escola Origem</label>
+                    <input type="text" id="nomeescolaorigem" name="nomeescolaorigem" value=""/>
+
+                    <label for="serieatual">Serie Atual</label>
+                    <input type="text" id="serieatual" name="serieatual" value="" placeholder="ex: 1 ano, 3 serie"/>
+
+                    <label for="primeiroensino">Primeiro Ensino</label>
+                    <input type="radio" id="primeiroensino" name="primeiroensino">
+                </div>
+
+                <!--Bloco formulario saude e emergencia-->
+                <div class="dadossaude">
+                    <p class="tituloForm">Saúde e Emergência</p>
+                    <p>Informações sobre condições de saúde relevantes</p>
+                    
+                    <label for="alergia">É alergico<span class="required"> * </span></label>
+                    <input type="checkbox" id="alergia" name="alergia" value="" required/>
+
+                    <label for="tipoalergia">Qual?</label>
+                    <input type="text" id="tipoalergia" name="tipoalergia" value="" required/>
+                    <br>
+                    <label for="doencacronica">Doença Cronica<span class="required"> * </span></label>
+                    <input type="checkbox" id="doencacronica" name="doencacronica" value="" required/>
+
+                    <label for="tipodoencacronica">Qual?</label>
+                    <input type="text" id="tipodoencacronica" name="tipodoencacronica" value="" required/>
+                </div>
+
+                <!--Bloco formulario Autorizações e Consentimentos-->
+                <div class="dadosautorizacoes">
+                    <p class="tituloForm">Autorizações e Consentimentos</p>
+                    
+                    <label for="autoimagem">Autorização para uso de imagem (fotografias, vídeos)<span class="required"> * </span></label>
+                    <span class="sim1">Sim </span><input type="radio" id="autoimagemsim" name="autoimagemsim" value="" required/>
+                    <span>Não </span><input type="radio" id="autoimagemnao" name="autoimagemnao" value="" required/>
+                    <br>
+                    <label for="autoatividades">Autorização para participação em atividades extracurriculares<span class="required"> * </span></label>
+                    <span class="sim2">Sim </span><input type="radio" id="autoatividadessim" name="autoatividadessim" value="" required/>
+                    <span>Não </span><input type="radio" id="autoatividadesnao" name="autoatividadesnao" value="" required/>           
+                </div>
+
+                <div class="salvar">
+
+                    <input type="submit" id="btnsalvar" name="btnsalvar" value="Salvar">
+                    <input type="reset" id="btnlimpar" name="btnlimpar" value="Limpar">
+                </div>
+           </form>
+
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
