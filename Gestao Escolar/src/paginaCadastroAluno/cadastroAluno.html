@@ -10,7 +10,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+
+    
     <script src="script.js"></script>
+
+    <script type="module">
+    // Importe as funções que você precisa dos SDKs do Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+
+    // Cole aqui o objeto de configuração do Firebase
+        const firebaseConfig = {
+        apiKey: "AIzaSyAPgksS1mCgPCwprlf6nADuvtXqHe4OVkU",
+        authDomain: "gestao-escolar-9fe2a.firebaseapp.com",
+        projectId: "gestao-escolar-9fe2a",
+        storageBucket: "gestao-escolar-9fe2a.firebasestorage.app",
+        messagingSenderId: "161735017123",
+        appId: "1:161735017123:web:4af9612034d5af72b57516"
+    };
+
+    // Inicializa o Firebase
+    const app = initializeApp(firebaseConfig);
+    // Inicializa o Firestore
+    const db = getFirestore(app);
+
+    // Coloque o código do seu formulário aqui dentro ou em outro script com type="module"
+    const formCadastro = document.querySelector('.formCadastro');
+    formCadastro.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        const dadosAluno = {
+            nome: document.getElementById('nomeCompleto').value,
+            matricula: document.getElementById('matricula').value,
+            dataNasc: document.getElementById('dataNasc').value,
+            //... outros campos
+            timestamp: serverTimestamp() // Sintaxe nova para timestamp
+        };
+
+        // Salva os dados (sintaxe nova)
+        addDoc(collection(db, "alunos"), dadosAluno)
+        .then((docRef) => {
+            alert("Aluno cadastrado com sucesso!");
+            formCadastro.reset();
+        })
+        .catch((error) => {
+            console.error("Erro ao cadastrar aluno: ", error);
+            alert("Ocorreu um erro ao cadastrar.");
+        });
+    });
+
+    </script>
+</script>
 </head>
 <body>
     <header class="navmenu">
@@ -48,121 +102,111 @@
                 <!--Bloco formulario dados pessoais-->
                 <div class="dadosPessoais">
                     <p class="tituloForm">Dados Pessoais</p>
-                    <label for="nomeCompleto">Nome Completo<span class="required"> * </span></label>
-                    <input type="text" id="nomeCompleto" name="nomeCompleto" value="" required/>
+                    
+                    <input type="text" id="nomeCompleto" name="nomeCompleto" class="inputForm" value="" placeholder="Nome Completo" required/>
 
-                    <label for="matricula">Matricula<span class="required"> * </span></label>
-                    <input type="text" id="matricula" name="matricula" value="" required/>
+                 
+                    <input type="text" id="matricula" name="matricula" class="inputForm" value="" placeholder="Matricula" required/>
+                    
+                    <span class="dataDiv">
+                        <label for="dataNasc">Data Nascimento<span class="required"> * </span></label>
+                        <input type="date" id="dataNasc" name="dataNasc" class="inputForm" value=""  required/>
+                    </span>
 
-                    <label for="dataNasc">Data Nascimento<span class="required"> * </span></label>
-                    <input type="date" id="dataNasc" name="dataNasc" value="" required/>
-
-                    <label for="genero">Genero<span class="required"> * </span></label>
-                    <select name="genero">
-                        <option value=""></option>
+                    <select name="genero" id="genero" class="inputForm"  >
+                        <option value="">Genero</option>
                         <option value="masculino">Masculino</option>
                         <option value="feminino">Feminino</option>
                     </select>
 
-                    <label for="nacionalidade">Nacionalidade<span class="required"> *</span></label>
-                    <input type="text" id="nacionalidade" name="nacionalidade" value="" required/>
+                    
+                    <input type="text" id="nacionalidade" name="nacionalidade" class="inputForm"value="" placeholder="Nacionalidade" required/>
 
-                    <label for="cpf">CPF<span class="required"> *</span></label>
-                    <input type="number" id="cpf" name="cpf" value="" required/>
+                
+                    <input type="number" id="cpf" name="cpf" class="inputForm" value="" placeholder="CPF" required/>
 
-                    <label for="rg">RG<span class="required" > *</span></label>
-                    <input type="number" id="rg" name="rg" value="" required/>
+                    
+                    <input type="number" id="rg" name="rg" class="inputForm" value="" placeholder="RG" required/>
+    
 
                 </div>
 
                 <!--Bloco formulario dados de contato-->
                 <div class="dadosContato">
                     <p class="tituloForm">Dados Contato</p>
-                    <label for="endereco">Endereco<span class="required"> * </span></label>
-                    <input type="text" id="endereco" name="endereco" value="" required/>
 
-                    <label for="numero">Número<span class="required" > *</span></label>
-                    <input type="number" id="numero" name="numero" value="" required/>
+                    <input type="text" id="endereco" name="endereco"  class="inputForm" value="" placeholder="Endereço" required/>
 
-                    <label for="complemento">Complemento<span class="required" > *</span></label>
-                    <input type="text" id="complemento" name="complemento" value="" required/>
+                    <input type="number" id="numero" name="numero"  class="inputForm" placeholder="Número" value="" required/>
 
-                    <label for="bairro">Bairro<span class="required" > *</span></label>
-                    <input type="text" id="bairro" name="bairro" value="" required/>
+                    <input type="text" id="complemento" name="complemento"  class="inputForm" placeholder="Complemento" value=""/>
 
-                    <label for="cidade">Cidade<span class="required" > *</span></label>
-                    <input type="text" id="cidade" name="cidade" value="" required/>
+
+                    <input type="text" id="bairro" name="bairro" class="inputForm" placeholder="Bairro" value="" required/>
+
+                    <input type="text" id="cidade" name="cidade"  class="inputForm" placeholder="Cidade" value="" required/>
                     
-                    <label for="estado">Estado<span class="required" > *</span></label>
-                    <input type="text" id="estado" name="estado" value="" required/>
+                    <input type="text" id="estado" name="estado" class="inputForm" placeholder="Estado" value="" required/>
 
-                    <label for="cep">CEP<span class="required" > *</span></label>
-                    <input type="number" id="cep" name="cep" value="" required/>
+                    <input type="number" id="cep" name="cep" class="inputForm" placeholder="CEP" value="" required/>
                 </div>
 
                 <!--Bloco formulario dados familiares-->
                 <div class="dadosfamiliares">
                     <p class="tituloForm">Dados Familiares</p>
-                    <label for="nomemae">Nome Mãe<span class="required"> * </span></label>
-                    <input type="text" id="nomemae" name="nomemae" value="" required/>
+                    <input type="text" id="nomemae" name="nomemae" class="inputForm" placeholder="Nome da Mãe" value="" required/>
 
-                    <label for="telefonemae">Telefone<span class="required"> * </span></label>
-                    <input type="tel" id="telefonemae" name="telefonemae" value="" required/>
+                    <input type="tel" id="telefonemae" name="telefonemae" class="inputForm" placeholder="Telefone da Mãe" value="" required/>
 
-                    <label for="emailmae">E-mail<span class="required"> * </span></label>
-                    <input type="email" id="emailmae" name="emailmae" value="" required/>
+                    <input type="email" id="emailmae" name="emailmae" class="inputForm" placeholder="Email da Mãe" value="" />
                     <br>
-                    <label for="nomepai">Nome Pai<span class="required"> * </span></label>
-                    <input type="text" id="nomepai" name="nomepai" value="" required/>
 
-                    <label for="telefonepai">Telefone<span class="required"> * </span></label>
-                    <input type="tel" id="telefonepai" name="telefonepai" value="" required/>
+                    <input type="text" id="nomepai" name="nomepai" value="" class="inputForm" placeholder="Nome do Pai" />
 
-                    <label for="emailpai">E-mail<span class="required"> * </span></label>
-                    <input type="email" id="emailpai" name="emailpai" value="" required/>
+                    <input type="tel" id="telefonepai" name="telefonepai" class="inputForm" placeholder="Telefone do Pai" value="" />
+
+                    <input type="email" id="emailpai" name="emailpai" class="inputForm" placeholder="Email do Pai" value="" />
                 </div>
 
                 <!--Bloco formulario informações escolares-->
                 <div class="dadosinfoescolares">
                     <p class="tituloForm">informações Escolares</p>
                     
-                    <label for="nomeescolaorigem">Nome Escola Origem</label>
-                    <input type="text" id="nomeescolaorigem" name="nomeescolaorigem" value=""/>
+                    <input type="text" id="nomeescolaorigem" name="nomeescolaorigem" class="inputForm" placeholder="Nome Escola Origem" value=""/>
 
-                    <label for="serieatual">Serie Atual</label>
-                    <input type="text" id="serieatual" name="serieatual" value="" placeholder="ex: 1 ano, 3 serie"/>
-
-                    <label for="primeiroensino">Primeiro Ensino</label>
-                    <input type="radio" id="primeiroensino" name="primeiroensino">
+                    <input type="text" id="serieatual" name="serieatual" value="" class="inputForm" placeholder="Serie atual" placeholder="ex: 1 ano, 3 serie"/>
+                    <label id="primeiroensino" class="inputForm"> Primeiro ensino </label>
+                    <input type="radio" id="primeiroensino" name="primeiroensino"  >
                 </div>
 
                 <!--Bloco formulario saude e emergencia-->
                 <div class="dadossaude">
                     <p class="tituloForm">Saúde e Emergência</p>
-                    <p>Informações sobre condições de saúde relevantes</p>
+                    <p id="descTitle">Informações sobre condições de saúde relevantes</p>
                     
-                    <label for="alergia">É alergico<span class="required"> * </span></label>
+                    <label for="alergia" class="question" >É alergico<span class="required" class="question"> * </span></label>
                     <input type="checkbox" id="alergia" name="alergia" value="" required/>
 
-                    <label for="tipoalergia">Qual?</label>
-                    <input type="text" id="tipoalergia" name="tipoalergia" value="" required/>
+                    <label for="tipoalergia" class="question">Qual?</label>
+                    <input type="text" id="tipoalergia" name="tipoalergia" value="" class="inputForm" placeholder="Descreva qual alergia"  required/>
                     <br>
-                    <label for="doencacronica">Doença Cronica<span class="required"> * </span></label>
+                    <label for="doencacronica" class="question">Doença Cronica<span class="required" > * </span></label>
                     <input type="checkbox" id="doencacronica" name="doencacronica" value="" required/>
 
-                    <label for="tipodoencacronica">Qual?</label>
-                    <input type="text" id="tipodoencacronica" name="tipodoencacronica" value="" required/>
+                    <label for="tipodoencacronica" class="question">Qual?</label>
+                    <input type="text" id="tipodoencacronica" name="tipodoencacronica" class="inputForm" placeholder="Descreva qual doença"  value=""  required/>
                 </div>
 
                 <!--Bloco formulario Autorizações e Consentimentos-->
                 <div class="dadosautorizacoes">
                     <p class="tituloForm">Autorizações e Consentimentos</p>
                     
-                    <label for="autoimagem">Autorização para uso de imagem (fotografias, vídeos)<span class="required"> * </span></label>
+                    <label for="autoimagem" class="question" >Autorização para uso de imagem (fotografias, vídeos)<span class="required"> * </span></label>
                     <span class="sim1">Sim </span><input type="radio" id="autoimagemsim" name="autoimagemsim" value="" required/>
                     <span>Não </span><input type="radio" id="autoimagemnao" name="autoimagemnao" value="" required/>
                     <br>
-                    <label for="autoatividades">Autorização para participação em atividades extracurriculares<span class="required"> * </span></label>
+                    <label for="autoatividades" class="question" >Autorização para participação em atividades extracurriculares<span class="required"> * </span></label>
+                
                     <span class="sim2">Sim </span><input type="radio" id="autoatividadessim" name="autoatividadessim" value="" required/>
                     <span>Não </span><input type="radio" id="autoatividadesnao" name="autoatividadesnao" value="" required/>           
                 </div>
