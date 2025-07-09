@@ -23,7 +23,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 
-    // Cole aqui o objeto de configuração do Firebase
+    //configuração do Firebase
         const firebaseConfig = {
         apiKey: "AIzaSyAPgksS1mCgPCwprlf6nADuvtXqHe4OVkU",
         authDomain: "gestao-escolar-9fe2a.firebaseapp.com",
@@ -33,12 +33,10 @@
         appId: "1:161735017123:web:4af9612034d5af72b57516"
     };
 
-    // Inicializa o Firebase
     const app = initializeApp(firebaseConfig);
-    // Inicializa o Firestore
     const db = getFirestore(app);
 
-    // Coloque o código do seu formulário aqui dentro ou em outro script com type="module"
+    //script formulario
     const formCadastro = document.querySelector('.formCadastro');
     formCadastro.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -47,11 +45,33 @@
             nome: document.getElementById('nomeCompleto').value,
             matricula: document.getElementById('matricula').value,
             dataNasc: document.getElementById('dataNasc').value,
-            //... outros campos
-            timestamp: serverTimestamp() // Sintaxe nova para timestamp
+            genero: document.getElementById('genero').value,
+            nacionalidade: document.getElementById('nacionalidade').value,
+            cpf: document.getElementById('cpf').value,
+            rg: document.getElementById('rg').value,
+            endereco: document.getElementById('endereco').value,
+            numero: document.getElementById('numero').value,
+            complemento: document.getElementById('complemento').value,
+            bairro: document.getElementById('bairro').value,
+            cidade: document.getElementById('cidade').value,
+            estado: document.getElementById('estado').value,
+            cep: document.getElementById('cep').value,
+            nomemae: document.getElementById('nomemae').value,
+            telefonemae: document.getElementById('telefonemae').value,
+            emailmae: document.getElementById('emailmae').value,
+            nomepai: document.getElementById('nomepai').value,
+            telefonepai: document.getElementById('telefonepai').value,
+            emailpai: document.getElementById('emailpai').value,
+            nomeescolaorigem: document.getElementById('nomeescolaorigem').value,
+            serieatual: document.getElementById('serieatual').value,
+            alergia: document.getElementById('alergia').value,
+            tipoalergia: document.getElementById('tipoalergia').value,
+            doencacronica:document.getElementById('doencacronica').value,
+            tipodoencacronica: document.getElementById('tipodoencacronica').value,
+            timestamp: serverTimestamp() //data e horario
         };
 
-        // Salva os dados (sintaxe nova)
+        // Salva os dados
         addDoc(collection(db, "alunos"), dadosAluno)
         .then((docRef) => {
             alert("Aluno cadastrado com sucesso!");
@@ -175,8 +195,6 @@
                     <input type="text" id="nomeescolaorigem" name="nomeescolaorigem" class="inputForm" placeholder="Nome Escola Origem" value=""/>
 
                     <input type="text" id="serieatual" name="serieatual" value="" class="inputForm" placeholder="Serie atual" placeholder="ex: 1 ano, 3 serie"/>
-                    <label id="primeiroensino" class="inputForm"> Primeiro ensino </label>
-                    <input type="radio" id="primeiroensino" name="primeiroensino"  >
                 </div>
 
                 <!--Bloco formulario saude e emergencia-->
@@ -195,20 +213,6 @@
 
                     <label for="tipodoencacronica" class="question">Qual?</label>
                     <input type="text" id="tipodoencacronica" name="tipodoencacronica" class="inputForm" placeholder="Descreva qual doença"  value=""  required/>
-                </div>
-
-                <!--Bloco formulario Autorizações e Consentimentos-->
-                <div class="dadosautorizacoes">
-                    <p class="tituloForm">Autorizações e Consentimentos</p>
-                    
-                    <label for="autoimagem" class="question" >Autorização para uso de imagem (fotografias, vídeos)<span class="required"> * </span></label>
-                    <span class="sim1">Sim </span><input type="radio" id="autoimagemsim" name="autoimagemsim" value="" required/>
-                    <span>Não </span><input type="radio" id="autoimagemnao" name="autoimagemnao" value="" required/>
-                    <br>
-                    <label for="autoatividades" class="question" >Autorização para participação em atividades extracurriculares<span class="required"> * </span></label>
-                
-                    <span class="sim2">Sim </span><input type="radio" id="autoatividadessim" name="autoatividadessim" value="" required/>
-                    <span>Não </span><input type="radio" id="autoatividadesnao" name="autoatividadesnao" value="" required/>           
                 </div>
 
                 <div class="salvar">
