@@ -10,78 +10,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
 
-     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
 
-    
-    <script src="script.js"></script>
+
 
     <script type="module">
-    // Importe as funções que você precisa dos SDKs do Firebase
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 
-    //configuração do Firebase
-        const firebaseConfig = {
-        apiKey: "AIzaSyAPgksS1mCgPCwprlf6nADuvtXqHe4OVkU",
-        authDomain: "gestao-escolar-9fe2a.firebaseapp.com",
-        projectId: "gestao-escolar-9fe2a",
-        storageBucket: "gestao-escolar-9fe2a.firebasestorage.app",
-        messagingSenderId: "161735017123",
-        appId: "1:161735017123:web:4af9612034d5af72b57516"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    //script formulario
-    const formCadastro = document.querySelector('.formCadastro');
-    formCadastro.addEventListener('submit', (event) => {
-        event.preventDefault();
-        
-        const dadosAluno = {
-            nome: document.getElementById('nomeCompleto').value,
-            matricula: document.getElementById('matricula').value,
-            dataNasc: document.getElementById('dataNasc').value,
-            genero: document.getElementById('genero').value,
-            nacionalidade: document.getElementById('nacionalidade').value,
-            cpf: document.getElementById('cpf').value,
-            rg: document.getElementById('rg').value,
-            endereco: document.getElementById('endereco').value,
-            numero: document.getElementById('numero').value,
-            complemento: document.getElementById('complemento').value,
-            bairro: document.getElementById('bairro').value,
-            cidade: document.getElementById('cidade').value,
-            estado: document.getElementById('estado').value,
-            cep: document.getElementById('cep').value,
-            nomemae: document.getElementById('nomemae').value,
-            telefonemae: document.getElementById('telefonemae').value,
-            emailmae: document.getElementById('emailmae').value,
-            nomepai: document.getElementById('nomepai').value,
-            telefonepai: document.getElementById('telefonepai').value,
-            emailpai: document.getElementById('emailpai').value,
-            nomeescolaorigem: document.getElementById('nomeescolaorigem').value,
-            serieatual: document.getElementById('serieatual').value,
-            alergia: document.getElementById('alergia').value,
-            tipoalergia: document.getElementById('tipoalergia').value,
-            doencacronica:document.getElementById('doencacronica').value,
-            tipodoencacronica: document.getElementById('tipodoencacronica').value,
-            timestamp: serverTimestamp() //data e horario
+        //configuração do Firebase
+            const firebaseConfig = {
+            apiKey: "AIzaSyAPgksS1mCgPCwprlf6nADuvtXqHe4OVkU",
+            authDomain: "gestao-escolar-9fe2a.firebaseapp.com",
+            projectId: "gestao-escolar-9fe2a",
+            storageBucket: "gestao-escolar-9fe2a.firebasestorage.app",
+            messagingSenderId: "161735017123",
+            appId: "1:161735017123:web:4af9612034d5af72b57516"
         };
 
-        // Salva os dados
-        addDoc(collection(db, "alunos"), dadosAluno)
-        .then((docRef) => {
-            alert("Aluno cadastrado com sucesso!");
-            formCadastro.reset();
-        })
-        .catch((error) => {
-            console.error("Erro ao cadastrar aluno: ", error);
-            alert("Ocorreu um erro ao cadastrar.");
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        //script formulario
+        const formCadastro = document.querySelector('.formCadastro');
+
+        //mensagem alert
+        const alertBox = document.getElementById("custom-alert");
+        const alertMessage = document.getElementById("alert-message");
+        const closeBtn = document.getElementById("close-btn");
+
+        function showAlert(message) {
+            alertMessage.textContent = message;
+            alertBox.style.display = "flex";
+        }
+
+        closeBtn.addEventListener("click", function () {
+            alertBox.style.display = "none";
         });
-    });
+
+        formCadastro.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            const dadosAluno = {
+                nome: document.getElementById('nomeCompleto').value,
+                matricula: document.getElementById('matricula').value,
+                dataNasc: document.getElementById('dataNasc').value,
+                genero: document.getElementById('genero').value,
+                nacionalidade: document.getElementById('nacionalidade').value,
+                cpf: document.getElementById('cpf').value,
+                rg: document.getElementById('rg').value,
+                endereco: document.getElementById('endereco').value,
+                numero: document.getElementById('numero').value,
+                complemento: document.getElementById('complemento').value,
+                bairro: document.getElementById('bairro').value,
+                cidade: document.getElementById('cidade').value,
+                estado: document.getElementById('estado').value,
+                cep: document.getElementById('cep').value,
+                nomemae: document.getElementById('nomemae').value,
+                telefonemae: document.getElementById('telefonemae').value,
+                emailmae: document.getElementById('emailmae').value,
+                nomepai: document.getElementById('nomepai').value,
+                telefonepai: document.getElementById('telefonepai').value,
+                emailpai: document.getElementById('emailpai').value,
+                nomeescolaorigem: document.getElementById('nomeescolaorigem').value,
+                serieatual: document.getElementById('serieatual').value,
+                alergia: document.getElementById('alergia').value,
+                tipoalergia: document.getElementById('tipoalergia').value,
+                doencacronica:document.getElementById('doencacronica').value,
+                tipodoencacronica: document.getElementById('tipodoencacronica').value,
+                timestamp: serverTimestamp() //data e horario
+            };
+
+ 
+            // Salva os dados
+            addDoc(collection(db, "alunos"), dadosAluno)
+            .then((docRef) => {
+                showAlert("Aluno cadastrado com sucesso!");
+                formCadastro.reset();
+            })
+            .catch((error) => {
+                console.error("Erro ao cadastrar aluno: ", error);
+                showAlert("Ocorreu um erro ao cadastrar.");
+            });
+        });
 
     </script>
 </script>
@@ -112,13 +128,14 @@
         </div>
     </header>
     <main>
+  
         <div class="telaNav">
            <div class="fotoAluno">
                 <img id="fotoAluno" src="userF1.png" alt="">
            </div>
         </div>
         <div class="telaCadastro">
-           <form action="" class="formCadastro">
+           <form action="" id="meuFormulario" class="formCadastro">
                 <!--Bloco formulario dados pessoais-->
                 <div class="dadosPessoais">
                     <p class="tituloForm">Dados Pessoais</p>
@@ -203,23 +220,25 @@
                     <p id="descTitle">Informações sobre condições de saúde relevantes</p>
                     
                     <label for="alergia" class="question" >É alergico<span class="required" class="question"> * </span></label>
-                    <input type="checkbox" id="alergia" name="alergia" value="" required/>
+                    <input type="checkbox" id="alergia" name="alergia" value="" />
 
                     <label for="tipoalergia" class="question">Qual?</label>
-                    <input type="text" id="tipoalergia" name="tipoalergia" value="" class="inputForm" placeholder="Descreva qual alergia"  required/>
+                    <input type="text" id="tipoalergia" name="tipoalergia" value="" class="inputForm" placeholder="Descreva qual alergia" />
                     <br>
                     <label for="doencacronica" class="question">Doença Cronica<span class="required" > * </span></label>
-                    <input type="checkbox" id="doencacronica" name="doencacronica" value="" required/>
+                    <input type="checkbox" id="doencacronica" name="doencacronica" value=""/>
 
                     <label for="tipodoencacronica" class="question">Qual?</label>
-                    <input type="text" id="tipodoencacronica" name="tipodoencacronica" class="inputForm" placeholder="Descreva qual doença"  value=""  required/>
+                    <input type="text" id="tipodoencacronica" name="tipodoencacronica" class="inputForm" placeholder="Descreva qual doença"  value=""/>
                 </div>
 
                 <div class="salvar">
 
                     <input type="submit" id="btnsalvar" name="btnsalvar" value="Salvar">
+                        
                     <input type="reset" id="btnlimpar" name="btnlimpar" value="Limpar">
                 </div>
+                
            </form>
 
         </div>
@@ -228,5 +247,13 @@
     <footer>
 
     </footer>
+
+    <div id="custom-alert" style="display: none;">
+        <div class="alert-box">
+            <p id="alert-message">Mensagem</p>
+            <button id="close-btn">OK</button>
+        </div>
+    </div>
+     
 </body>
 </html>
