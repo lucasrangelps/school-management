@@ -22,16 +22,10 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+        import { firebaseConfig } from './firebase-config.js';
 
         //configuração do Firebase
-            const firebaseConfig = {
-            apiKey: "AIzaSyAPgksS1mCgPCwprlf6nADuvtXqHe4OVkU",
-            authDomain: "gestao-escolar-9fe2a.firebaseapp.com",
-            projectId: "gestao-escolar-9fe2a",
-            storageBucket: "gestao-escolar-9fe2a.firebasestorage.app",
-            messagingSenderId: "161735017123",
-            appId: "1:161735017123:web:4af9612034d5af72b57516"
-        };
+            
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
