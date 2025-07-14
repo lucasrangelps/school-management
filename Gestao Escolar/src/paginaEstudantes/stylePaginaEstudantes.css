@@ -113,3 +113,34 @@ a {
         transition: 0.5s;
     }
 }
+.mainEstudantes {
+    border-radius: 4px;
+    background-color: white;
+    margin: 1%;
+    padding: 1%;
+    height: 400px;
+    display: flex;
+}
+ul {
+    list-style: none;
+}
+.menu-rigth {
+    padding: 30px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, #fba342, #fbc241);
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.menu-rigth a {
+    color: #fff;
+    text-decoration: none;
+    font-family: montserrat;
+    padding-left: 8px;
+    padding-right: 10px;
+    font-size: 14px;  
+}
+.menu-rigth:hover {
+    background: linear-gradient(90deg, #fbc241, #ffb301);
+}
