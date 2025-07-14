@@ -124,7 +124,7 @@ a {
 ul {
     list-style: none;
 }
-.menu-rigth {
+.botaoAdd {
     padding: 30px;
     padding-top: 8px;
     padding-bottom: 10px;
@@ -133,7 +133,7 @@ ul {
     border-radius: 4px;
     margin-bottom: 10px;
 }
-.menu-rigth a {
+.botaoAdd a {
     color: #fff;
     text-decoration: none;
     font-family: montserrat;
@@ -141,6 +141,6 @@ ul {
     padding-right: 10px;
     font-size: 14px;  
 }
-.menu-rigth:hover {
+.botaoAdd:hover {
     background: linear-gradient(90deg, #fbc241, #ffb301);
 }
