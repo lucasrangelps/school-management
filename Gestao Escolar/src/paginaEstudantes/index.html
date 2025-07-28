@@ -3,8 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <title>Estudantes</title>
-  <link rel="stylesheet" href="stylePaginaEstudantes.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="stylePaginaEstudantes.css">
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAPgksS1mCgPCwprlf6nADuvtXqHe4OVkU",
+            authDomain: "gestao-escolar-9fe2a.firebaseapp.com",
+            projectId: "gestao-escolar-9fe2a",
+            storageBucket: "gestao-escolar-9fe2a.firebasestorage.app",
+            messagingSenderId: "161735017123",
+            appId: "1:161735017123:web:4af9612034d5af72b57516"
+        };
+
+        //configuração do Firebase
+          const app = firebase.initializeApp(firebaseConfig);
+          const db = firebase.firestore(app);
+
+        const estudantesDiv = document.getElementById('estudantes');
+
+        // firebase.firestore().collection("alunos").get()
+        //     .then((querySnapshot) => {
+        //         querySnapshot.forEach((doc) => {
+        //             const dados = doc.data();
+        //             estudantesDiv.innerHTML += 
+        //             `
+        //             <p>
+        //                <strong>Nome:</strong> ${dados.nome} <br>
+        //                <strong>Matricula:</strong> ${dados.matricula} 
+        //             </p>
+                        
+        //             `;
+        //         });
+        //     })
+        //     .catch((erro) => {
+        //         console.error("Erro ao recuperar dados: ", erro);
+        // });
+
+        // Buscar dados
+            db.collection("alunos").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                const dados = doc.data();
+                document.getElementById("estudantesCadastrados").innerHTML += `
+                    <p> <br>
+                        <strong>Nome:</strong> ${dados.nome} <br>
+                        <strong>Matricula:</strong> ${dados.matricula} <br>
+                        <strong>Data Nascimento:<strong> ${dados.dataNasc} <br>
+                        <div class="botaoVisualizar">
+                        <ul>
+                            <li>
+                                <a href="#">Visualizar</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </p>
+                        
+        `;
+            });
+        });
+
+    </script>
 </head>
+
 <body>
   <div class="menu">
     <ul class="listaMenu">
@@ -50,14 +121,19 @@
                     </ul>
                 </div>
                 <div class="pesquisarEstudante">
-                    
+
                 </div>
+            </div>
+            <div id="estudantesCadastrados">
+                
+
             </div>
         </div>
       </div>
     </div>
     
   </main>
+  
 
 </body>
 </html>

@@ -128,7 +128,7 @@ ul {
     padding: 30px;
     padding-top: 8px;
     padding-bottom: 10px;
-    background: linear-gradient(90deg, #fba342, #fbc241);
+    background: linear-gradient(90deg, #F54F00, #FC8400);
     color: #fff;
     border-radius: 4px;
     margin-bottom: 10px;
@@ -142,5 +142,43 @@ ul {
     font-size: 14px;  
 }
 .botaoAdd:hover {
-    background: linear-gradient(90deg, #fbc241, #ffb301);
+    background: linear-gradient(90deg, #F54F00, #FC8400);
+}
+.superior{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+}
+.mainEstudantes {
+  display: flex;
+  flex-direction: column; 
+  background-color: #ffb3011e;
+  padding: 10px;
+  height: auto;
+}
+p {
+    font-family: montserrat;
+}
+.botaoVisualizar {
+    padding: 20px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, #F54F00, #FC8400);
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 8%;
+}
+.botaoVisualizar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: montserrat;
+    padding-left: 8px;
+    padding-right: 10px;
+    font-size: 14px;  
 }
