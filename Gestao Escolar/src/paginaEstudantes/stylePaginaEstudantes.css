@@ -22,7 +22,7 @@ body {
 }
 .menu {
     width: 15%;
-    background-color: #fba342;
+    background-color: #fba242;
     font-family: "Rajdhani", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -199,4 +199,40 @@ p {
     padding-left: 8px;
     padding-right: 10px;
     font-size: 14px;  
+}
+#searchbar {
+    --padding: 14px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 6px;
+    background: #f6f6f6;
+    width: 480px;
+    transition: box-shadow 0.25s;
+}
+
+#searchbar:focus-within{
+    box-shadow: 0 0 2px rgb(235, 115, 4);
+}
+
+#searchbar {
+    font-size: 16px;
+    font-family: 'Nunito', Courier, monospace;
+    color: #446497;
+    margin-left: 100%;
+    outline: none;
+    border: none;
+    background: white;
+    flex: 1;
+    margin-top: -10px;
+}
+
+.search-input::placeholder, .search-icon {
+    color: rgba(68, 100, 151, 1);
+}
+ul{
+    list-style: none;
 }
