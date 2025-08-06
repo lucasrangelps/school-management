@@ -139,7 +139,8 @@ ul {
     font-family: montserrat;
     padding-left: 8px;
     padding-right: 10px;
-    font-size: 14px;  
+    font-size: 14px;
+ 
 }
 .botaoAdd:hover {
     background: linear-gradient(90deg, #F54F00, #FC8400);
@@ -149,17 +150,35 @@ ul {
     flex-direction: row;
     justify-content: space-between;
     height: 40px;
+    margin-top: 1%;
+    margin-bottom: 1%; 
 }
 .conteudo{
     display: flex;
     flex-direction: column;
 }
 .mainEstudantes {
-  display: flex;
-  flex-direction: column; 
-  background-color: #ffb3011e;
-  padding: 10px;
-  height: auto;
+    display: flex;
+    flex-direction: column; 
+    background-color: #ffb3011e;
+    padding: 10px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.27);
+    -moz-box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.27);
+}
+.blocoAluno{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 1%;
+    margin-bottom: 0.5%;
+    /* box-shadow: 5px 5px 14px 0px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 5px 5px 14px 0px rgba(0,0,0,0.27);
+    -moz-box-shadow: 5px 5px 14px 0px rgba(0,0,0,0.27); */
 }
 p {
     font-family: montserrat;
@@ -172,7 +191,6 @@ p {
     color: #fff;
     border-radius: 4px;
     margin-bottom: 10px;
-    width: 8%;
 }
 .botaoVisualizar a {
     color: #fff;

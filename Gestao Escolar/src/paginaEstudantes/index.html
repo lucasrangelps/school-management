@@ -56,19 +56,20 @@
             querySnapshot.forEach((doc) => {
                 const dados = doc.data();
                 document.getElementById("estudantesCadastrados").innerHTML += `
+                  <div class="blocoAluno">
                     <p> <br>
                         <strong>Nome:</strong> ${dados.nome} <br>
                         <strong>Matricula:</strong> ${dados.matricula} <br>
-                        <strong>Data Nascimento:<strong> ${dados.dataNasc} <br>
-                        <div class="botaoVisualizar">
+                        <strong>Data Nascimento:<strong> ${dados.dataNasc} <br>   
+                    </p>
+                    <div class="botaoVisualizar">
                         <ul>
                             <li>
                                 <a href="#">Visualizar</a>
                             </li>
                         </ul>
-                        </div>
-                    </p>
-                        
+                    </div>
+                  <div>      
         `;
             });
         });
