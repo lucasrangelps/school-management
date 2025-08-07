@@ -125,13 +125,14 @@ ul {
     list-style: none;
 }
 .botaoAdd {
-    padding: 30px;
-    padding-top: 8px;
-    padding-bottom: 10px;
+    padding: 36px;
+    padding-top: 16px;
+    padding-bottom: 30px;
     background: linear-gradient(90deg, #F54F00, #FC8400);
     color: #fff;
     border-radius: 4px;
     margin-bottom: 10px;
+    margin-top: -10px;
 }
 .botaoAdd a {
     color: #fff;
@@ -140,7 +141,6 @@ ul {
     padding-left: 8px;
     padding-right: 10px;
     font-size: 14px;
- 
 }
 .botaoAdd:hover {
     background: linear-gradient(90deg, #F54F00, #FC8400);
